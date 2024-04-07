@@ -1,0 +1,13 @@
+.RecipeCard {
+  border: 2px solid cadetblue;
+  background-color: rgb(227, 254, 254);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  margin: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.RecipeCard h3 {
+  color: royalblue;
+}

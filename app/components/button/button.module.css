@@ -1,0 +1,15 @@
+.button {
+  background-color: honeydew;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid olive;
+  color: rgb(0, 41, 0);
+  margin: 0.2rem;
+}
+
+.button:hover,
+.button:focus {
+  border: 1.5px solid darkorange;
+  color: darkorange;
+  background-color: whitesmoke;
+}
