@@ -1,6 +1,8 @@
+"use client";
+
 import React from "react";
 import styles from "./weathercard.module.css";
-import Button from "../button/Button";
+import Button from "../Button/Button";
 
 const WeatherCard = () => {
   return (

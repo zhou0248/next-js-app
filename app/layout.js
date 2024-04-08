@@ -1,5 +1,6 @@
 import { Mukta } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header/Header";
 
 const font = Mukta({
   weight: ["200", "300", "400", "500", "600", "700", "800"],
@@ -14,7 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

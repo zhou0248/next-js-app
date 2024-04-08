@@ -1,17 +1,12 @@
 import Image from "next/image";
-import Header from "./components/header/header";
+import Header from "./components/Header/Header";
 import styles from "./page.module.css";
-import MovieCard from "./components/moviecard/MovieCard";
-import RecipeCard from "./components/recipecard/RecipeCard";
-import WeatherCard from "./components/weathercard/WeatherCard";
+import Form from "./components/Form/Form";
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Header />
-      <MovieCard />
-      <RecipeCard />
-      <WeatherCard />
+      <Form />
     </main>
   );
 }
