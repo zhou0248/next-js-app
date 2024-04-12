@@ -1,5 +1,7 @@
 import React from "react";
 import WeatherCard from "../components/WeatherCard/WeatherCard";
+import RecipeCard from "../components/RecipeCard/RecipeCard";
+import MovieCard from "../components/MovieCard/MovieCard";
 
 const page = (props) => {
   const location = props.params.location;
@@ -8,7 +10,9 @@ const page = (props) => {
     <div>
       page for weather
       <p>{location}</p>
-      <WeatherCard />
+      <WeatherCard location={location} />
+      <RecipeCard />
+      <MovieCard />
     </div>
   );
 };
