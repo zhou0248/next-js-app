@@ -3,13 +3,14 @@
 import React from "react";
 import styles from "./button.module.css";
 
-const Button = () => {
-  function handleClick() {
-    console.log("button clicked");
+const Button = (props) => {
+  const { link, buttonName } = props;
+  function redirect() {
+    redirect(link);
   }
   return (
-    <span className={styles.button} onClick={handleClick}>
-      Clickable Button
+    <span className={styles.button} onClick={redirect}>
+      {buttonName}
     </span>
   );
 };

@@ -2,7 +2,6 @@
 
 import React from "react";
 import styles from "./form.module.css";
-import Button from "../Button/Button";
 import { handleForm } from "@/app/action";
 const form = () => {
   return (

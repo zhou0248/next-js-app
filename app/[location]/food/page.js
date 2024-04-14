@@ -1,3 +1,4 @@
+import Button from "@/app/components/Button/Button";
 import RecipeCard from "@/app/components/RecipeCard/RecipeCard";
 import React from "react";
 
@@ -6,7 +7,7 @@ const page = (props) => {
   return (
     <div>
       page for food
-      <p> {location} </p>
+      <Button buttonName="Go back" link="/" />
       <RecipeCard />
     </div>
   );

@@ -2,16 +2,14 @@
 
 import React from "react";
 import styles from "./weathercard.module.css";
-import Button from "../Button/Button";
 
 const WeatherCard = (props) => {
   const location = props.location;
-
+  const weather = props.weather;
   return (
     <div className={styles.WeatherCard}>
       <h3>Weather Information for {location}</h3>
-      <p>Weather Details</p>
-      <Button />
+      <p>{weather}</p>
     </div>
   );
 };

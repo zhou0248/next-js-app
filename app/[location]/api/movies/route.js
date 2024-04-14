@@ -1,7 +1,8 @@
 export async function GET(request) {
+  const location = params.location;
   try {
     const api_key = process.env.weather_api_key;
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name},${country_code}&appid=${api_key}`;
+    let url = `https://api.themoviedb.org/3/search/movie?query=${weather}&include_adult=false&language=en-US&page=1`;
     let resp = await fetch(url);
     let data = await resp.json();
     return new Response(JSON.stringify(data), {
@@ -9,11 +10,6 @@ export async function GET(request) {
       headers: { "content-type": "application/json" },
     });
   } catch (err) {
-    return new Response("{'error':123, 'message':'weather is not found'}", {
-      headers: {
-        "content-type": "application/json",
-      },
-      status: 432,
-    });
+    return new Response({ error: err.message }, { status: 500 });
   }
 }

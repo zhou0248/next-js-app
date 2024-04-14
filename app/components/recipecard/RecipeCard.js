@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./recipecard.module.css";
-import Button from "../Button/Button";
 
 const RecipeCard = () => {
   return (
@@ -11,7 +10,6 @@ const RecipeCard = () => {
       <h3>Recipe Name</h3>
       <Image src="" alt="movie poster" />
       <p>Recipe Details lorem</p>
-      <Button />
     </div>
   );
 };

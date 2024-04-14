@@ -6,3 +6,7 @@ export async function handleForm(formData) {
   const city = encodeURIComponent(formData.get("city"));
   redirect(`/${city}`);
 }
+
+export async function redirectLink(direction) {
+  redirect(`/${direction}`);
+}
