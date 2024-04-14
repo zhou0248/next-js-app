@@ -2,14 +2,18 @@
 
 import React from "react";
 import styles from "./weathercard.module.css";
+import { useEffect } from "react";
 
 const WeatherCard = (props) => {
-  const getWeather = props.func;
   const location = props.location;
+  const getWeather = props.getWeather;
+  useEffect(() => {
+    const weather = (getWeather(location).map = (data) => {});
+  }, [location]);
   return (
     <div className={styles.WeatherCard}>
       <h3>Weather Information for {location}</h3>
-      <p>{getWeather()}</p>
+      <p></p>
     </div>
   );
 };

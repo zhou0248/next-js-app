@@ -9,11 +9,11 @@ const page = (props) => {
   const decodeLocation = decodeURIComponent(location);
   const url = process.env.baseurl;
 
-  const getWeather = async (location) => {
+  const getWeather = async (place) => {
     "use server";
-    const decodeLocation = decodeURIComponent(location);
+    const decodeLocation = decodeURIComponent(place);
     try {
-      let resp = await fetch(`${url}/${location}/api/weather`, {
+      let resp = await fetch(`${url}/${place}/api/weather`, {
         headers: { accept: "application/json" },
       });
       if (!resp.ok) {
@@ -29,6 +29,7 @@ const page = (props) => {
         description: data.weather[0].description,
         temp: data.main.temp,
       };
+      console.log(data, weather);
       return weather;
     } catch (err) {
       throw new Error(`Can't fetch weather information for ${decodeLocation}`);
@@ -41,7 +42,7 @@ const page = (props) => {
       <p>
         <Link href="/">Back to Search Page</Link>
       </p>
-      <WeatherCard func={getWeather()} location={location} />
+      <WeatherCard location={location} getWeather={getWeather} />
       <p>
         <Link href="/food">Find the Pairing Food</Link>
       </p>
