@@ -8,7 +8,10 @@ const page = (props) => {
   const location = props.params.location;
   const decodeLocation = decodeURIComponent(location);
   const url = process.env.baseurl;
+
   const getWeather = async (location) => {
+    "use server";
+    const decodeLocation = decodeURIComponent(location);
     try {
       let resp = await fetch(`${url}/${location}/api/weather`, {
         headers: { accept: "application/json" },
@@ -31,8 +34,6 @@ const page = (props) => {
       throw new Error(`Can't fetch weather information for ${decodeLocation}`);
     }
   };
-  let weather = getWeather(location);
-  console.log(weather);
 
   return (
     <div className="p-8">
@@ -40,7 +41,7 @@ const page = (props) => {
       <p>
         <Link href="/">Back to Search Page</Link>
       </p>
-      <div></div>
+      <WeatherCard func={getWeather()} location={location} />
       <p>
         <Link href="/food">Find the Pairing Food</Link>
       </p>
