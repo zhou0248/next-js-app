@@ -29,7 +29,6 @@ const page = (props) => {
         description: data.weather[0].description,
         temp: data.main.temp,
       };
-      console.log(data, weather);
       return weather;
     } catch (err) {
       throw new Error(`Can't fetch weather information for ${decodeLocation}`);
