@@ -9,7 +9,6 @@ const page = (props) => {
       <p>
         <Link href={`/${location}`}>Back to Weather Page</Link>
       </p>
-      <p></p>
       <MovieCard />
     </div>
   );
