@@ -1,4 +1,3 @@
-import Button from "@/app/components/Button/Button";
 import MovieCard from "@/app/components/MovieCard/MovieCard";
 import Link from "next/link";
 import React from "react";

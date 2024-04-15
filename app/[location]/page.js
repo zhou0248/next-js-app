@@ -1,7 +1,5 @@
 import React from "react";
 import WeatherCard from "../components/WeatherCard/WeatherCard";
-import RecipeCard from "../components/RecipeCard/RecipeCard";
-import MovieCard from "../components/MovieCard/MovieCard";
 import Link from "next/link";
 
 const page = (props) => {

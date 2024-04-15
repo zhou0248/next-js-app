@@ -1,4 +1,3 @@
-import Button from "@/app/components/Button/Button";
 import RecipeCard from "@/app/components/RecipeCard/RecipeCard";
 import React from "react";
 import Link from "next/link";
