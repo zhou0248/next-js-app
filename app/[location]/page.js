@@ -3,6 +3,7 @@ import WeatherCard from "../components/WeatherCard/WeatherCard";
 import RecipeCard from "../components/RecipeCard/RecipeCard";
 import MovieCard from "../components/MovieCard/MovieCard";
 import Link from "next/link";
+import { data } from "autoprefixer";
 
 const page = (props) => {
   const location = props.params.location;
@@ -34,7 +35,11 @@ const page = (props) => {
       throw new Error(`Can't fetch weather information for ${decodeLocation}`);
     }
   };
-
+  const weatherInfo = getWeather(location);
+  weatherInfo.then((data) => {
+    console.log(data);
+    return data;
+  });
   return (
     <div className="p-8">
       <h2>The weather in {decodeLocation}</h2>
@@ -43,10 +48,14 @@ const page = (props) => {
       </p>
       <WeatherCard location={location} getWeather={getWeather} />
       <p>
-        <Link href="/food">Find the Pairing Food</Link>
+        <Link href={{ pathname: `/${location}/food`, query: { weather: "" } }}>
+          Find the Pairing Food
+        </Link>
       </p>
       <p>
-        <Link href="/movie">Find the Pairing Movie</Link>
+        <Link href={{ pathname: `/${location}/movie`, query: { weather: "" } }}>
+          Find the Pairing Movie
+        </Link>
       </p>
     </div>
   );

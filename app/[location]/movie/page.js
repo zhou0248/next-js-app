@@ -7,12 +7,10 @@ const page = (props) => {
   const location = props.params.location;
   return (
     <div>
-      page for movie
       <p>
-        <Link href="/">Back to Search Page</Link>
+        <Link href={`/${location}`}>Back to Weather Page</Link>
       </p>
-      <Button buttonName="Go Back" link="/" />
-      <p>{location}</p>
+      <p></p>
       <MovieCard />
     </div>
   );

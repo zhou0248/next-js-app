@@ -15,16 +15,26 @@ const WeatherCard = (props) => {
     });
   }, [location]);
 
+  if (weatherInfo && location) {
+  }
+
   return (
     <div className={styles.WeatherCard}>
       <h3>Weather Information for {location}</h3>
-      <div className=""></div>
-      <p>Weather: {weatherInfo.weather}</p>
-      <p>Description: {weatherInfo.description}</p>
-      <p>Temperature: {weatherInfo.temp} </p>
-      <p>
-        Location: Lat {weatherInfo.lat}, Lon {weatherInfo.lon}
-      </p>
+      <div>
+        {weatherInfo ? (
+          <div>
+            <p>Weather: {weatherInfo.weather}</p>
+            <p>Description: {weatherInfo.description}</p>
+            <p>Temperature: {weatherInfo.temp} </p>
+            <p>
+              Location: Lat {weatherInfo.lat}, Lon {weatherInfo.lon}
+            </p>
+          </div>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };
