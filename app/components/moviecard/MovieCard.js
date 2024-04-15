@@ -7,7 +7,7 @@ const MovieCard = () => {
   return (
     <div className={styles.MovieCard}>
       <h3>Movie Name</h3>
-      <Image src="" alt="movie poster" />
+      <Image src="https://placehold.co/600x400" alt="movie poster" />
       <p>Movie Description</p>
     </div>
   );

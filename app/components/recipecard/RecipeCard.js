@@ -8,7 +8,7 @@ const RecipeCard = () => {
   return (
     <div className={styles.RecipeCard}>
       <h3>Recipe Name</h3>
-      <Image src="" alt="movie poster" />
+      <Image src="https://placehold.co/600x400" alt="movie poster" />
       <p>Recipe Details lorem</p>
     </div>
   );
