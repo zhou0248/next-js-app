@@ -9,7 +9,7 @@ const MovieCard = () => {
       <h3>Movie Name</h3>
       <Image
         src="https://placehold.co/600x400"
-        alt="Recipe Image"
+        alt="Movie Poster"
         width={600}
         height={400}
       />
