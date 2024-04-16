@@ -5,18 +5,20 @@ import React from "react";
 const page = (props) => {
   const location = props.params.location;
   const weather = props.searchParams.w;
-  const getMovie = async (weather) => {
+  const getMovie = async (weather, location) => {
     "use server";
     try {
-      let url = `https://api.themoviedb.org/3/search/movie?query=${weather}&include_adult=false&language=en-US&page=1`;
+      const url = process.env.baseurl;
       const options = {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: process.env.movie_api_token,
         },
       };
-      let resp = await fetch(url, options);
+      let resp = await fetch(
+        `${url}/${location}/api/movie?w=${weather}`,
+        options
+      );
       if (!resp.ok) {
         throw new Error(`Can't fetch Movies with keyword ${weather}`);
       }
