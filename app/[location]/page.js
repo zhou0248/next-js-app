@@ -20,6 +20,9 @@ const page = (props) => {
         );
       }
       let data = await resp.json();
+      if (!data) {
+        throw new Error("No weather information found");
+      }
       let weather = {
         lon: data.coord.lon,
         lat: data.coord.lat,

@@ -4,12 +4,52 @@ import React from "react";
 
 const page = (props) => {
   const location = props.params.location;
+  const weather = props.searchParams.w;
+  const getMovie = async (weather) => {
+    "use server";
+    try {
+      let url = `https://api.themoviedb.org/3/search/movie?query=${weather}&include_adult=false&language=en-US&page=1`;
+      const options = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: process.env.movie_api_token,
+        },
+      };
+      let resp = await fetch(url, options);
+      if (!resp.ok) {
+        throw new Error(`Can't fetch Movies with keyword ${weather}`);
+      }
+      let data = await resp.json();
+      if (data.results.length === 0) {
+        throw new Error(`No movies found for ${weather}`);
+      }
+
+      let movie = {
+        title: data.results[0].title,
+        overview: data.results[0].overview,
+        poster: data.results[0].poster_path
+          ? `https://image.tmdb.org/t/p/w500${data.results[0].poster_path}`
+          : "https://placehold.co/300x200",
+        release_date: data.results[0].release_date,
+      };
+
+      console.log(movie);
+      return movie;
+    } catch (err) {
+      throw new Error(`Can't fetch Movies with keyword ${weather}`);
+    }
+  };
+
   return (
     <div>
       <p>
         <Link href={`/${location}`}>Back to Weather Page</Link>
       </p>
-      <MovieCard />
+      <div>
+        <p>Movies for {weather} </p>
+        <MovieCard getMovie={getMovie} keyword={weather} />
+      </div>
     </div>
   );
 };

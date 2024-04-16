@@ -9,10 +9,10 @@ const RecipeCard = () => {
     <div className={styles.RecipeCard}>
       <h3>Recipe Name</h3>
       <Image
-        src="https://placehold.co/600x400"
+        src="https://placehold.co/300x200"
         alt="Recipe Image"
-        width={600}
-        height={400}
+        width={300}
+        height={200}
       />
       <p>Recipe Details lorem</p>
     </div>
