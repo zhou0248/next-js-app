@@ -9,6 +9,7 @@ const page = (props) => {
     "use server";
     try {
       const url = process.env.baseurl;
+      const decodeWeather = decodeURIComponent(weather);
       const options = {
         method: "GET",
         headers: {
@@ -16,17 +17,16 @@ const page = (props) => {
         },
       };
       let resp = await fetch(
-        `${url}/${location}/api/movie?w=${weather}`,
-        options
+        `${url}/${location}/api/movie/${weather}/`,
+        options,
       );
       if (!resp.ok) {
-        throw new Error(`Can't fetch Movies with keyword ${weather}`);
+        throw new Error(`Can't fetch Movies with keyword ${decodeWeather}`);
       }
       let data = await resp.json();
       if (data.results.length === 0) {
         throw new Error(`No movies found for ${weather}`);
       }
-
       let movie = {
         title: data.results[0].title,
         overview: data.results[0].overview,
@@ -35,8 +35,6 @@ const page = (props) => {
           : "https://placehold.co/300x200",
         release_date: data.results[0].release_date,
       };
-
-      console.log(movie);
       return movie;
     } catch (err) {
       throw new Error(`Can't fetch Movies with keyword ${weather}`);
